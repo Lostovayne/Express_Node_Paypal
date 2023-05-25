@@ -1,5 +1,15 @@
 export const createOrder = (req, res) => {
-  res.send("Order created");
+  const order = {
+    intent: "CAPTURE",
+    purchase_units: [
+      {
+        amount: {
+          value: "100",
+          currency_code: "USD",
+        },
+      },
+    ],
+  };
 };
 
 export const captureOrder = (req, res) => {

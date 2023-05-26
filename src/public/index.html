@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Products</h1>
+    
+    <button id="checkout" >
+        Pagar
+        
+    </button>
+    
+    <script>
+        document.getElementById("checkout").addEventListener("click",async  function(){
+           const response = await  fetch("/create-order", {
+                method: "POST",
+            })
+            const data = await response.json()
+            
+            window.location.href = data.links[1].href
+            
+        })
+    </script>
+</body>
+</html>
